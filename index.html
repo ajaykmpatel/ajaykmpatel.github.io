@@ -55,15 +55,20 @@
 
   .hero-photo{
     position:relative; background:var(--yellow);
-    display:flex; align-items:flex-end; justify-content:center;
+    display:flex; align-items:flex-end; justify-content:flex-start;
     clip-path: polygon(0 0, 100% 0, 78% 100%, 0% 100%);
-    padding:0 40px;
+    padding:0 28px 0 12px;
   }
   @media (max-width:860px){ .hero-photo{clip-path:none; padding:40px 24px 0;} }
 
   .avatar-frame{
-    width:100%; max-width:360px; aspect-ratio:3/4; margin-top:40px;
-    display:flex; align-items:flex-end; justify-content:center; overflow:hidden;
+    width:100%; max-width:420px; aspect-ratio:3/4; margin-top:32px;
+    display:flex; align-items:flex-end; justify-content:flex-start; overflow:visible;
+    transform:translateX(-10px) scale(1.08);
+    transform-origin:left bottom;
+  }
+  .avatar-frame img{
+    width:100%; height:100%; object-fit:contain; object-position:left center; display:block;
   }
   .avatar-placeholder{
     width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -190,7 +195,7 @@
   <div class="hero-inner">
     <div class="hero-photo">
       <div class="avatar-frame">
-        <img src="ajay-photo1.png" alt="Ajay Kumar Patel" style="width:100%; height:100%; object-fit:contain; object-position:left bottom;">
+        <img src="ajay-photo1.png" alt="Ajay Kumar Patel" style="width:100%; height:100%; object-fit:contain; object-position:bottom;">
       </div>
     </div>
     <div class="hero-content">
@@ -218,8 +223,8 @@
         </a>
       </div>
 
-      <div class="hero-name">AJAY</div>
-      <div class="hero-surname">PATEL</div>
+      <div class="hero-name">Mr.</div>
+      <div class="hero-surname">AJAY KUMAR PATEL</div>
       <div class="hero-rule"></div>
       <div class="hero-role">DevOps And QA Engineer</div>
       <p class="hero-tag">8+ years in software, 2+ years focused on DevOps — CI/CD pipelines, cloud infrastructure, and automation that keeps production boring (in a good way).</p>
