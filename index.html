@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajay Kumar Patel — DevOps Engineer</title>
+<meta name="description" content="Ajay Kumar Patel — DevOps Engineer with 8+ years overall experience, 2+ years in DevOps. CI/CD, Cloud, Kubernetes, IaC, Automation.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0B0E14;
+    --surface:#121821;
+    --surface-2:#161D28;
+    --border:#232C38;
+    --text:#E6EDF3;
+    --muted:#8B98A5;
+    --green:#3FB950;
+    --green-dim:#1F3D26;
+    --amber:#D29922;
+    --blue:#58A6FF;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+    --display: 'Space Grotesk', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(63,185,80,0.06), transparent 35%),
+      radial-gradient(circle at 85% 20%, rgba(88,166,255,0.05), transparent 40%);
+  }
+
+  a{color:inherit;}
+  ::selection{background:var(--green-dim); color:var(--green);}
+
+  :focus-visible{
+    outline:2px solid var(--green);
+    outline-offset:3px;
+    border-radius:3px;
+  }
+
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- PIPELINE NAV ---------- */
+  .pipeline-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,14,20,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .pipeline-nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:var(--mono); font-size:14px; font-weight:600; color:var(--green);
+    display:flex; align-items:center; gap:8px; text-decoration:none;
+  }
+  .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); display:inline-block;}
+  .pipeline-stages{
+    display:flex; align-items:center; gap:2px;
+    font-family:var(--mono); font-size:12px;
+  }
+  .pipeline-stages a{
+    color:var(--muted); text-decoration:none; padding:6px 12px; border-radius:4px;
+    transition:color .15s ease, background .15s ease;
+    display:flex; align-items:center; gap:6px;
+  }
+  .pipeline-stages a:hover{color:var(--text); background:var(--surface-2);}
+  .pipeline-stages .arrow{color:var(--border); font-size:10px;}
+  .pipeline-stages a::before{
+    content:'○'; color:var(--green); font-size:8px;
+  }
+  @media (max-width:800px){ .pipeline-stages{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:96px 0 72px;}
+  .hero-grid{display:grid; grid-template-columns:1fr; gap:32px;}
+
+  .status-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12px; color:var(--green);
+    background:var(--green-dim); border:1px solid rgba(63,185,80,0.3);
+    padding:5px 12px; border-radius:20px; margin-bottom:24px;
+  }
+  .status-badge .pulse{
+    width:7px; height:7px; border-radius:50%; background:var(--green);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(63,185,80,0.5);}
+    50%{opacity:0.6; box-shadow:0 0 0 6px rgba(63,185,80,0);}
+  }
+
+  h1.name{
+    font-family:var(--display);
+    font-size:clamp(36px, 6vw, 58px);
+    font-weight:700;
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    margin-bottom:12px;
+  }
+  .role-line{
+    font-family:var(--mono);
+    font-size:clamp(15px, 2.2vw, 19px);
+    color:var(--blue);
+    margin-bottom:20px;
+  }
+  .role-line .sep{color:var(--muted); padding:0 8px;}
+
+  .hero-desc{
+    max-width:620px; color:var(--muted); font-size:16px; margin-bottom:32px;
+  }
+  .hero-desc strong{color:var(--text); font-weight:600;}
+
+  .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:48px;}
+  .btn{
+    font-family:var(--mono); font-size:13px; font-weight:500;
+    padding:12px 20px; border-radius:6px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--border);
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--green); color:#0B0E14; border-color:var(--green); font-weight:600;}
+  .btn-primary:hover{background:#4fd561;}
+  .btn-ghost{background:var(--surface); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--muted);}
+
+  /* terminal card */
+  .terminal{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
+    max-width:640px;
+  }
+  .terminal-head{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px; border-bottom:1px solid var(--border);
+    background:var(--surface-2);
+  }
+  .terminal-head .tdot{width:10px; height:10px; border-radius:50%;}
+  .t-red{background:#F85149;} .t-amber{background:var(--amber);} .t-green{background:var(--green);}
+  .terminal-head span.title{
+    margin-left:8px; font-family:var(--mono); font-size:12px; color:var(--muted);
+  }
+  .terminal-body{
+    padding:20px; font-family:var(--mono); font-size:13.5px; line-height:1.9;
+  }
+  .terminal-body .prompt{color:var(--green);}
+  .terminal-body .cmd{color:var(--text);}
+  .terminal-body .out-key{color:var(--blue);}
+  .terminal-body .out-val{color:var(--muted);}
+  .terminal-body .comment{color:#5b6470;}
+  .cursor{display:inline-block; width:8px; height:15px; background:var(--green); vertical-align:middle; animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0; border-top:1px solid var(--border);}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:36px; flex-wrap:wrap;}
+  .sec-stage{
+    font-family:var(--mono); font-size:12px; color:var(--green);
+    background:var(--green-dim); border:1px solid rgba(63,185,80,0.25);
+    padding:3px 10px; border-radius:4px; white-space:nowrap;
+  }
+  .sec-title{font-family:var(--display); font-size:28px; font-weight:600;}
+  .sec-sub{font-family:var(--mono); font-size:13px; color:var(--muted); margin-top:-24px; margin-bottom:32px;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-text p{color:var(--muted); margin-bottom:16px; font-size:15.5px;}
+  .about-text strong{color:var(--text);}
+  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .stat-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:18px;
+  }
+  .stat-num{font-family:var(--display); font-size:30px; font-weight:700; color:var(--green);}
+  .stat-label{font-family:var(--mono); font-size:11.5px; color:var(--muted); margin-top:4px; text-transform:uppercase; letter-spacing:.04em;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;}
+  .skill-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px;
+    transition:border-color .15s ease;
+  }
+  .skill-card:hover{border-color:rgba(63,185,80,0.4);}
+  .skill-cat{
+    font-family:var(--mono); font-size:12px; color:var(--amber);
+    text-transform:uppercase; letter-spacing:.05em; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .skill-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--mono); font-size:12px; color:var(--text);
+    background:var(--surface-2); border:1px solid var(--border);
+    padding:5px 10px; border-radius:5px;
+  }
+
+  /* ---------- EXPERIENCE (pipeline timeline) ---------- */
+  .timeline{position:relative; padding-left:28px;}
+  .timeline::before{
+    content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px;
+    background:linear-gradient(var(--green), var(--border));
+  }
+  .tl-item{position:relative; padding-bottom:40px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{
+    position:absolute; left:-28px; top:4px; width:12px; height:12px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--green);
+  }
+  .tl-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+  .tl-role{font-family:var(--display); font-size:19px; font-weight:600;}
+  .tl-period{font-family:var(--mono); font-size:12px; color:var(--muted); background:var(--surface); border:1px solid var(--border); padding:3px 10px; border-radius:20px; white-space:nowrap;}
+  .tl-company{font-family:var(--mono); font-size:13px; color:var(--blue); margin-bottom:10px;}
+  .tl-desc{color:var(--muted); font-size:14.5px; margin-bottom:10px;}
+  .tl-desc ul{padding-left:18px; display:flex; flex-direction:column; gap:6px;}
+
+  /* ---------- PROJECTS ---------- */
+  .projects-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;}
+  .project-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:22px; display:flex; flex-direction:column; gap:12px;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .project-card:hover{transform:translateY(-3px); border-color:rgba(88,166,255,0.4);}
+  .project-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+  .project-title{font-family:var(--display); font-size:17px; font-weight:600;}
+  .project-status{font-family:var(--mono); font-size:10.5px; color:var(--green); background:var(--green-dim); padding:3px 8px; border-radius:4px; white-space:nowrap;}
+  .project-desc{color:var(--muted); font-size:14px;}
+  .project-stack{display:flex; flex-wrap:wrap; gap:6px;}
+  .project-stack span{font-family:var(--mono); font-size:11px; color:var(--blue); background:rgba(88,166,255,0.08); padding:3px 8px; border-radius:4px;}
+  .project-links{display:flex; gap:14px; margin-top:auto; padding-top:6px;}
+  .project-links a{font-family:var(--mono); font-size:12.5px; color:var(--text); text-decoration:none; border-bottom:1px solid var(--border);}
+  .project-links a:hover{color:var(--green); border-color:var(--green);}
+
+  /* ---------- CERTS ---------- */
+  .cert-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px;}
+  .cert-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:16px; font-family:var(--mono); font-size:13px;
+    display:flex; align-items:flex-start; gap:10px;
+  }
+  .cert-card .chk{color:var(--green); font-size:15px; margin-top:1px;}
+  .cert-name{color:var(--text); margin-bottom:3px;}
+  .cert-issuer{color:var(--muted); font-size:11.5px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-box{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:44px; text-align:center;
+  }
+  .contact-box .sec-stage{margin-bottom:16px; display:inline-block;}
+  .contact-title{font-family:var(--display); font-size:26px; font-weight:600; margin-bottom:12px;}
+  .contact-sub{color:var(--muted); max-width:480px; margin:0 auto 28px; font-size:15px;}
+  .contact-links{display:flex; justify-content:center; gap:14px; flex-wrap:wrap;}
+
+  footer{
+    padding:32px 0; text-align:center; font-family:var(--mono); font-size:12px; color:var(--muted);
+    border-top:1px solid var(--border);
+  }
+  footer .dot{color:var(--green);}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="pipeline-nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="dot"></span> ajay.patel</a>
+    <div class="pipeline-stages">
+      <a href="#about">about</a><span class="arrow">→</span>
+      <a href="#skills">skills</a><span class="arrow">→</span>
+      <a href="#experience">experience</a><span class="arrow">→</span>
+      <a href="#projects">projects</a><span class="arrow">→</span>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status-badge"><span class="pulse"></span> OPEN TO WORK — DevOps Engineer</div>
+      <h1 class="name">Ajay Kumar Patel</h1>
+      <div class="role-line">DevOps Engineer <span class="sep">/</span> CI-CD &amp; Cloud Automation <span class="sep">/</span> 8+ yrs overall</div>
+      <p class="hero-desc">
+        I build and run the pipelines, infrastructure, and automation that let engineering teams
+        ship faster with fewer surprises. <strong>8+ years</strong> in the software industry,
+        with <strong>2+ years focused on DevOps</strong> — CI/CD, cloud infrastructure,
+        containers, and Infrastructure as Code.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">$ contact --me</a>
+        <a href="resume.pdf" class="btn btn-ghost" download>↓ download resume</a>
+        <a href="https://github.com/YOUR-GITHUB-USERNAME" class="btn btn-ghost" target="_blank" rel="noopener">github ↗</a>
+      </div>
+    </div>
+
+    <div class="terminal" aria-hidden="false">
+      <div class="terminal-head">
+        <span class="tdot t-red"></span><span class="tdot t-amber"></span><span class="tdot t-green"></span>
+        <span class="title">ajay@devops-workstation:~</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+        <div><span class="out-val">ajay kumar patel — devops engineer</span></div>
+        <div>&nbsp;</div>
+        <div><span class="prompt">$</span> <span class="cmd">cat experience.yaml</span></div>
+        <div><span class="out-key">total_experience:</span> <span class="out-val">8+ years</span></div>
+        <div><span class="out-key">devops_experience:</span> <span class="out-val">2+ years</span></div>
+        <div><span class="out-key">status:</span> <span class="out-val">actively interviewing</span></div>
+        <div>&nbsp;</div>
+        <div><span class="prompt">$</span> <span class="cmd">kubectl get engineer -o wide</span></div>
+        <div class="comment">NAME    READY   STATUS    RESTARTS</div>
+        <div>ajay    1/1     <span class="out-val" style="color:var(--green)">Running</span>   0</div>
+        <div>&nbsp;</div>
+        <div><span class="prompt">$</span> <span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-stage">STAGE 01</span>
+      <h2 class="sec-title">About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          <!-- EDIT ME: Write 2-3 short paragraphs about your background. Keep it specific and honest. -->
+          I'm a DevOps Engineer with <strong>8+ years</strong> of overall experience in the software
+          industry, including <strong>2+ years working directly in DevOps</strong> — building CI/CD
+          pipelines, managing cloud infrastructure, and automating the boring, error-prone parts of
+          shipping software so teams don't have to think about them.
+        </p>
+        <p>
+          Before moving into DevOps, I spent time on [<em>your earlier role, e.g. "Software Development" /
+          "System Administration" / "Support Engineering" — edit this</em>], which gave me a strong
+          foundation in how applications actually behave in production — not just how they're built.
+          That background is what makes me effective at the infra/ops side: I understand both sides
+          of the wall DevOps is supposed to remove.
+        </p>
+        <p>
+          I'm currently looking for <strong>DevOps Engineer</strong> roles where I can own CI/CD,
+          cloud infrastructure, and reliability end-to-end. Based in India, open to remote / hybrid / onsite.
+          <!-- EDIT ME: adjust location & work-mode preference -->
+        </p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Years Total Experience</div></div>
+        <div class="stat-card"><div class="stat-num">2+</div><div class="stat-label">Years in DevOps</div></div>
+        <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Tools &amp; Platforms</div></div>
+        <div class="stat-card"><div class="stat-num">99.9%</div><div class="stat-label">Uptime Target — edit</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-stage">STAGE 02</span>
+      <h2 class="sec-title">Skills &amp; Tools</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat">☁ Cloud Platforms</div>
+        <div class="skill-tags">
+          <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">⚙ CI / CD</div>
+        <div class="skill-tags">
+          <span class="tag">Jenkins</span><span class="tag">GitHub Actions</span><span class="tag">GitLab CI</span><span class="tag">Azure DevOps</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">📦 Containers &amp; Orchestration</div>
+        <div class="skill-tags">
+          <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">🏗 Infrastructure as Code</div>
+        <div class="skill-tags">
+          <span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">CloudFormation</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">📈 Monitoring &amp; Logging</div>
+        <div class="skill-tags">
+          <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">ELK Stack</span><span class="tag">CloudWatch</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">💻 Scripting &amp; OS</div>
+        <div class="skill-tags">
+          <span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Linux</span><span class="tag">Git</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:20px;">
+      * Edit the lists above — keep only the tools you've actually used, and add anything missing (e.g. ArgoCD, Vault, Nagios, ServiceNow, etc.)
+    </p>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-stage">STAGE 03</span>
+      <h2 class="sec-title">Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-head">
+          <span class="tl-role">DevOps Engineer</span>
+          <span class="tl-period">[Month Year] — Present</span>
+        </div>
+        <div class="tl-company">[Company Name] · [Location / Remote]</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Built and maintained CI/CD pipelines using [Jenkins/GitHub Actions/etc.], cutting deployment time by [X]%.</li>
+            <li>Managed cloud infrastructure on [AWS/Azure] using Terraform, provisioning [X] environments.</li>
+            <li>Set up monitoring/alerting with [Prometheus + Grafana], reducing incident response time by [X]%.</li>
+            <li>Containerized [N] applications with Docker and deployed to Kubernetes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-head">
+          <span class="tl-role">[Previous Role Title]</span>
+          <span class="tl-period">[Month Year] — [Month Year]</span>
+        </div>
+        <div class="tl-company">[Company Name] · [Location]</div>
+        <div class="tl-desc">
+          <ul>
+            <li>[Achievement / responsibility — use numbers where possible: %, time saved, scale]</li>
+            <li>[Achievement / responsibility]</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-head">
+          <span class="tl-role">[Earlier Role Title]</span>
+          <span class="tl-period">[Month Year] — [Month Year]</span>
+        </div>
+        <div class="tl-company">[Company Name] · [Location]</div>
+        <div class="tl-desc">
+          <ul>
+            <li>[Achievement / responsibility]</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:24px;">
+      * Add every role from your 8 years here, most recent first. Recruiters scan this section first.
+    </p>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-stage">STAGE 04</span>
+      <h2 class="sec-title">Projects</h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-title">CI/CD Pipeline for [App Name]</span>
+          <span class="project-status">deployed</span>
+        </div>
+        <p class="project-desc">
+          Automated build-test-deploy pipeline reducing release time from [X hrs] to [Y mins].
+          Includes automated rollback on failed health checks.
+        </p>
+        <div class="project-stack"><span>Jenkins</span><span>Docker</span><span>AWS</span></div>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">code ↗</a>
+          <a href="#" target="_blank" rel="noopener">write-up ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-title">Infra-as-Code: [Project Name]</span>
+          <span class="project-status">deployed</span>
+        </div>
+        <p class="project-desc">
+          Terraform modules to provision a full VPC + EKS cluster + monitoring stack from scratch in under 10 minutes.
+        </p>
+        <div class="project-stack"><span>Terraform</span><span>Kubernetes</span><span>Grafana</span></div>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">code ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-title">[Third Project Name]</span>
+          <span class="project-status">in progress</span>
+        </div>
+        <p class="project-desc">
+          [Short description of what it does and the problem it solves.]
+        </p>
+        <div class="project-stack"><span>Ansible</span><span>Python</span></div>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">code ↗</a>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:20px;">
+      * Even a couple of small personal/home-lab projects (e.g. "Terraform script to spin up a K8s cluster on AWS Free Tier") work great here — recruiters want proof, not just a skills list.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-stage">STAGE 05</span>
+      <h2 class="sec-title">Certifications</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card"><span class="chk">✓</span><div><div class="cert-name">[Certification Name]</div><div class="cert-issuer">[Issuer] · [Year]</div></div></div>
+      <div class="cert-card"><span class="chk">✓</span><div><div class="cert-name">[Certification Name]</div><div class="cert-issuer">[Issuer] · [Year]</div></div></div>
+      <div class="cert-card"><span class="chk">✓</span><div><div class="cert-name">[Certification Name]</div><div class="cert-issuer">[Issuer] · [Year]</div></div></div>
+    </div>
+    <p style="font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:20px;">
+      * No certs yet? Delete this section, or list courses in progress (e.g. "AWS Solutions Architect Associate — in progress").
+    </p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <span class="sec-stage">STAGE 06 — DEPLOY</span>
+      <div class="contact-title">Let's ship something together.</div>
+      <p class="contact-sub">
+        Open to DevOps Engineer roles — remote, hybrid, or onsite.
+        Reach out directly, I usually reply within a day.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:ajay.patel3894@gmail.com" class="btn btn-primary">✉ ajay.patel3894@gmail.com</a>
+        <a href="https://linkedin.com/in/ajaykmpatel" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/ajaykmpatel" class="btn btn-ghost" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="resume.pdf" class="btn btn-ghost" download>Resume ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    built &amp; deployed by ajay kumar patel <span class="dot">●</span> status: online
+  </div>
+</footer>
+
+</body>
+</html>
