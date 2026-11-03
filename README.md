@@ -44,5 +44,5 @@ GitHub Pages is a genuinely permanent free tier (used by millions of personal si
 - Go to your repo → click `index.html` → click the pencil (edit) icon → make changes → "Commit changes"
 - Site updates automatically within ~1 minute, no redeploy needed
 
-## Optional: use a custom domain later if required
+## Optional: use a custom domain later if needed
 If you ever want `ajaykumarpatel.com` instead of the github.io URL, buy a domain (~$10-12/year from Namecheap/Cloudflare) and point it to GitHub Pages via repo Settings → Pages → Custom domain. Not required — the free github.io URL works perfectly fine on a resume.
